@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏娃無花果園</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", Arial, sans-serif; background: #fff; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 20px auto; background: #FFF9E3; border-radius: 14px; box-shadow: 0 3px 12px #ccc; padding: 40px; }
+        .main-flex { display: flex; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+        .main-photo { max-width: 900px; min-width: 700px; width: 90vw; }
+        .right-content { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 18px; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        h1 { color: #7c4d03; font-size: 2.2em; margin: 0; }
+        p { font-size: 1.3em; margin: 0; }
+        ul { line-height: 2.1; font-size: 1.3em; margin: 0; }
+        .phone { font-size: 1.2em; color: #333; }
+        .btn { background: #7c4d03; color: #fff; border: none; border-radius: 6px; padding: 8px 20px; font-size: 1em; cursor: pointer; transition: background 0.2s; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #a86f1a; color: #fff; }
+        .btn.return-btn { background: #2e7d32; }
+        .btn.return-btn:hover { background: #43a047; }
+        @media (max-width: 900px) {
+            .main-flex { flex-direction: column; gap: 16px; }
+            .main-photo { width: 100%; max-width: 100%; min-width: 0; height: auto; }
+            .right-content { min-width: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-flex">
+            <img src="鮮果.jpg" alt="混合果盒" class="main-photo">
+            <div class="right-content">
+                <h1>夏娃無花果園</h1>
+                <p>歡迎選購新鮮無花果！</p>
+                <ul>
+                    <li>混合果1斤250元</li>
+                    <li>4斤一盒1000元</li>
+                    <li>低溫宅配225元</li>
+                    <li>購買電話：0972776819 吳先生</li>
+                </ul>
+                <div class="btn-group">
+                    <a href="variety.html" class="btn">品種介紹</a>
+                    <a href="fresh.html" class="btn">買鮮果</a>
+                    <a href="seedling.html" class="btn">買種苗</a>
+                    <a href="dried.html" class="btn">買乾果</a>
+                    <a href="contact.html" class="btn">聯絡我</a>
+                </div>
+                <div style="margin-top:18px;">
+                    <a href="fig.html" class="btn return-btn">返回主頁</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

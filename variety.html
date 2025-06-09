@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏娃無花果園</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", Arial, sans-serif; background: #fff; margin: 0; padding: 0; }
+        .container { max-width: 1000px; margin: 20px auto; background: #FFF9E3; border-radius: 14px; box-shadow: 0 3px 12px #ccc; padding: 40px; }
+        h1 { color: #7c4d03; font-size: 2.2em; }
+        ul { line-height: 2.1; font-size: 1.3em; }
+        p { font-size: 1.3em; }
+        .btn { background: #7c4d03; color: #fff; border: none; border-radius: 6px; padding: 8px 20px; font-size: 1em; cursor: pointer; transition: background 0.2s; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #a86f1a; color: #fff; }
+        .btn-group { display: flex; gap: 10px; margin-bottom: 18px; }
+        .flex-img-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px 24px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-bottom: 32px;
+        }
+        .img-zoom {
+            max-width: 160px;
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 8px;
+            transition: max-width 0.3s;
+            cursor: pointer;
+        }
+        .img-zoom.zoomed {
+            max-width: 480px;
+            z-index: 1001;
+            position: fixed;
+            left: 50%;
+            bottom: 40px;
+            transform: translateX(-50%);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+            background: #fff;
+            margin-bottom: 0;
+        }
+        .img-zoom-bg {
+            display: none;
+            position: fixed;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        .img-zoom-bg.active { display: block; }
+        @media (max-width: 900px) {
+            .flex-img-row { flex-direction: column; gap: 18px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="btn-group">
+            <a href="variety.html" class="btn">品種介紹</a>
+            <a href="fresh.html" class="btn">買鮮果</a>
+            <a href="seedling.html" class="btn">買種苗</a>
+            <a href="dried.html" class="btn">買乾果</a>
+            <a href="contact.html" class="btn">聯絡我</a>
+            <a href="fig.html" class="btn">返回主頁</a>
+        </div>
+       
+        <h1>夏娃無花果園</h1>
+        <p>歡迎來到夏娃無花果園的品種介紹頁面！</p>
+       
+
+        <p>1波姬紅、2斯特拉、3綜色土耳其、4法紫、5馬尤娜、6索契、7黑努爾、8烏魚子、9深色卡内娃、10美利亞、11威海青皮、12馬爾他獵鷹、13土耳其黑后、14黑帝王、15翡翠草莓、16紫大果、17豐産黃、18伊朗姫、19綠龍血、20伯利恆、21黑美人、22皇家葡萄園、23鸢尾花、24娜不勒斯、25電子表格、26藍色布拉瓦、27木蘭、28死神黑、 29獨特女王、30美國紅、31綠虎、32卡羅娜黑、33金傲芬、34阿美尼亞、35黑傑克、36摩洛哥改良23、37義大利376（新加卅黑）、38黑卡龍、39黑貝隆、40黑色蘇克蕾、41早山口、42新疆早黃、43龍德波爾多、44白亞得里亞、45西西里黑、46青花（变異）、47紫喬丹、48亞當、49白色土耳其、50貝貝拉布蘭卡、51伊戈蜂蜜、52暗黑序利亞、53黑色熱娜亞、54紅色黎巴嫩、55波波拉多、</p>
+         <div class="flex-img-row">
+            <div>
+                <img src="索契.jpg" alt="索契" class="img-zoom" onclick="toggleZoom(this)">
+                <div style="font-size:1.2em;margin-bottom:24px;text-align:center;">索契</div>
+            </div>
+            <div>
+                <img src="黑努.jpg" alt="黑擬爾" class="img-zoom" onclick="toggleZoom(this)">
+                <div style="font-size:1.2em;margin-bottom:24px;text-align:center;">黑努爾</div>
+            </div>
+            <div>
+                <img src="威海青皮.jpg" alt="威海青皮" class="img-zoom" onclick="toggleZoom(this)">
+                <div style="font-size:1.2em;margin-bottom:24px;text-align:center;">威海青皮</div>
+            </div>
+            <div>
+                <img src="深色卡內娃.jpg" alt="深色卡內娃" class="img-zoom" onclick="toggleZoom(this)">
+                <div style="font-size:1.2em;margin-bottom:24px;text-align:center;">深色卡內娃</div>
+            </div>
+        </div>
+    </div>
+    <div id="imgZoomBg" class="img-zoom-bg"></div>
+    <script>
+    let lastZoomed = null;
+    function toggleZoom(img) {
+        const bg = document.getElementById('imgZoomBg');
+        if (!img.classList.contains('zoomed')) {
+            if (lastZoomed) lastZoomed.classList.remove('zoomed');
+            img.classList.add('zoomed');
+            bg.classList.add('active');
+            lastZoomed = img;
+        } else {
+            img.classList.remove('zoomed');
+            bg.classList.remove('active');
+            lastZoomed = null;
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('imgZoomBg').onclick = function() {
+            if (lastZoomed) {
+                lastZoomed.classList.remove('zoomed');
+                lastZoomed = null;
+            }
+            this.classList.remove('active');
+        };
+    });
+    </script>
+</body>
+</html> 
