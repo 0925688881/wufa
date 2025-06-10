@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鮮果訂購單｜夏娃無花果園</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", Arial, sans-serif; background: #fff; margin: 0; padding: 0; }
+        .container { max-width: 680px; margin: 20px auto; background: #FFF9E3; border-radius: 14px; box-shadow: 0 3px 12px #ccc; padding: 2px 28px; }
+        h1 { color: #e64519; font-size: 2em; text-align: center; margin-bottom: 18px; }
+        p { text-align: center; color: #7c4d03; margin-bottom: 28px; }
+        label { display: block; margin: 16px 0 6px 0; color: #7c4d03; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 1.1em; margin-bottom: 8px; }
+        textarea { resize: vertical; min-height: 40px; }
+        button { width: 100%; background: #e64519; color: #fff; border: none; border-radius: 8px; padding: 14px 0; font-size: 1.3em; font-weight: bold; cursor: pointer; margin-top: 18px; transition: background 0.2s; }
+        button:hover { background: #b92d0b; }
+        .thanks { text-align: center; color: #2e7d32; font-size: 1.3em; margin-top: 32px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>鮮果（綜合果）訂購單</h1>
+        <p>請填寫下方資料，我們將盡快與您聯絡確認訂單！</p>
+        <form action="https://formspree.io/f/xyzjeoao" method="POST" id="orderForm">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="姓名" required>
+            <label for="phone">電話</label>
+            <input type="tel" id="phone" name="電話" required pattern="[0-9\-\+ ]{8,15}">
+            <label for="address">寄送住址</label>
+            <input type="text" id="address" name="住址" required>
+            <label for="amount">訂購數量（4斤/盒）<span style='color:#e64519;font-size:0.9em;'>(每斤250元)</span></label>
+            <input type="number" id="amount" name="訂購數量" min="1" required oninput="calcTotal()">
+            <div id="totalPrice" style="font-size:1.1em;color:#e64519;margin-bottom:10px;">加總金額：250元</div>
+            <input type="hidden" id="totalPriceInput" name="加總金額" value="250元">
+            <label for="note">備註（一律低溫宅配，4斤以下225元）</label>
+            <textarea id="note" name="備註" placeholder="可填寫配送、其他需求等"></textarea>
+            <button type="submit">送出訂單</button>
+        </form>
+        <a href="index.html" style="display:block;text-align:center;margin:24px auto 0 auto;padding:12px 0;width:100%;max-width:320px;background:#7c4d03;color:#fff;font-size:1.2em;border-radius:8px;text-decoration:none;">返回主頁</a>
+        <div id="thanksMsg" class="thanks" style="display:none;">感謝您的訂購！我們將盡快與您聯絡。</div>
+    </div>
+    <script>
+    function calcTotal() {
+        var amount = document.getElementById('amount').value;
+        var price = 250;
+        var total = amount ? price * parseInt(amount) : price;
+        document.getElementById('totalPrice').textContent = '加總金額：' + total + '元';
+        document.getElementById('totalPriceInput').value = total + '元';
+    }
+    </script>
+</body>
+</html> 
