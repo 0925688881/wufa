@@ -25,43 +25,198 @@
             .main-photo { width: 100%; max-width: 100%; min-width: 0; }
             .right-content { min-width: 0; }
         }
+        .img-zoom {
+          cursor: zoom-in;
+          transition: box-shadow 0.2s;
+        }
+        .img-zoom:hover {
+          box-shadow: 0 0 0 4px #e0c08088;
+        }
+        .img-lightbox-bg {
+          display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;
+        }
+        .img-lightbox-bg.active {
+          display:flex;
+        }
+        .img-lightbox-bg img {
+          max-width:90vw; max-height:90vh; border-radius:12px; box-shadow:0 6px 32px #0008;
+        }
+        .section-block {
+          border:2px solid #e0c080;
+          border-radius:10px;
+          padding:20px;
+          margin-bottom:32px;
+          background:#fffbe8;
+          width:100%;
+          box-sizing:border-box;
+        }
+        .section-title {
+          font-size:1.3em;
+          font-weight:bold;
+          color:#7c4d03;
+          margin-bottom:12px;
+        }
+        .section-btn {
+          background: #7c4d03;
+          color: #fff;
+          font-size: 1em;
+          font-weight: bold;
+          border-radius: 8px;
+          padding: 10px 22px;
+          margin-right: 8px;
+          margin-bottom: 8px;
+          text-decoration: none;
+          display: inline-block;
+          transition: background 0.2s;
+          letter-spacing: 2px;
+        }
+        .section-btn:hover {
+          background: #a86f1a;
+          color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="main-flex">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:32px;">
+        <div style="flex:1;">
+          <div class="main-flex">
             <div style="display:flex; flex-direction:column; align-items:flex-start;">
-                <img src="高壓苗.jpg" alt="無花果種苗" class="main-photo">
-                <div style="margin-top:24px;">
-                    <div style="font-size:1.3em; font-weight:bold; color:#7c4d03; margin-bottom:12px;">高壓苗區</div>
-                    <img src="高壓苗.jpg" alt="無花果高壓苗" style="width:100%;max-width:600px;display:block;margin-bottom:8px;">
-                    <div style="font-size:1em;color:#555;margin-bottom:16px;">▲ 夏娃無花果園各品種高壓苗，根系發達，成活率高，適合新手與進階種植者。</div>
-                    <div style="font-size:1.3em; font-weight:bold; color:#7c4d03; margin-bottom:12px;">扦插苗區</div>
-                    <div style="font-size:1.3em; font-weight:bold; color:#7c4d03;">枝條區</div>
+              <img src="高壓苗.jpg" alt="無花果種苗" class="main-photo">
+              <div style="margin-top:24px;">
+                <div id="grafting-section" class="section-block">
+                  <div class="section-title">高壓苗區</div>
+                  <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:8px;flex-wrap:wrap;width:100%;">
+                    <img src="高壓苗.jpg" alt="無花果高壓苗" class="img-zoom" onclick="openLightbox('高壓苗.jpg')" style="width:100%;max-width:60%;display:block;">
+                    <img src="30.jpg" alt="高壓苗實拍" class="img-zoom" onclick="openLightbox('30.jpg')" style="width:100%;max-width:48%;display:block;">
+                  </div>
+                  <div style="font-size:2em;color:#555;margin-bottom:0;">▲ 高壓苗照片每株250元，根系完整，健康強壯，適合直接種植。</div>
                 </div>
+                <div id="cutting-section" class="section-block">
+                  <div class="section-title">扦插苗區</div>
+                  <div style="font-size:2em;color:#555;margin-bottom:0;">▲ 扦插苗照片每株150元，根系完整，健康強壯，適合直接種植。</div>
+                </div>
+                <div id="branch-section" class="section-block">
+                  <div class="section-title">枝條區</div>
+                  <div style="font-size:2em;color:#555;margin-bottom:0;">▲ 每枝30元，枝條健康強壯，適合種植。</div>
+                </div>
+                <div id="pot1-section" class="section-block">
+                  <div class="section-title">一年生盆栽</div>
+                  <div style="font-size:2em;color:#555;margin-bottom:0;">▲ 每盆1000元，根系完整，健康強壯，適合種植。</div>
+                </div>
+                <div id="pot2-section" class="section-block">
+                  <div class="section-title">二年生盆栽</div>
+                  <div style="font-size:2em;color:#555;margin-bottom:0;">▲ 每盆2000元，根系完整，健康強壯，適合種植。</div>
+                </div>
+                <div id="pot3-section" class="section-block">
+                  <div class="section-title">三年生盆栽</div>
+                  <div style="font-size:2em;color:#555;margin-bottom:0;">▲ 每盆3000元，根系完整，健康強壯，適合種植。</div>
+                </div>
+              </div>
             </div>
-            <div class="right-content">
-                <h1>夏娃無花果園</h1>
-                <p>歡迎選購無花果種苗</p>
-                <div class="phone">0972776819</div>
-                <div class="btn-group">
-                    <a href="variety.html" class="btn">品種介紹</a>
-                    <a href="fresh.html" class="btn">買鮮果</a>
-                    <a href="seedling.html" class="btn">買種苗</a>
-                    <a href="dried.html" class="btn">買乾果</a>
-                    <a href="contact.html" class="btn">聯絡我</a>
-                </div>
-                <div class="btn-group" style="margin-top:12px;">
-                    <a href="#" class="btn purple-btn">高壓苗</a>
-                    <a href="#" class="btn purple-btn">扦插苗</a>
-                    <a href="#" class="btn purple-btn">枝條</a>
-                </div>
-                <div style="margin-top:18px;">
-                    <a href="index.html" class="btn return-btn">返回主頁</a>
-                </div>
-                
-            </div>
+          </div>
         </div>
+        <div class="right-content" style="max-width:340px;min-width:220px;">
+          <h1>夏娃無花果園</h1>
+          <p>歡迎選購無花果種苗</p>
+          <div class="phone">0972776819</div>
+          <div class="btn-group">
+            <a href="variety.html" class="btn">品種介紹</a>
+            <a href="fresh.html" class="btn">買鮮果</a>
+            <a href="seedling.html" class="btn">買種苗</a>
+            <a href="dried.html" class="btn">買乾果</a>
+            <a href="contact.html" class="btn">聯絡我</a>
+          </div>
+          <div class="btn-group" style="margin-top:12px;">
+            <a href="#grafting-section" class="section-btn">高壓苗</a>
+            <a href="#cutting-section" class="section-btn">扦插苗</a>
+            <a href="#branch-section" class="section-btn">枝條</a>
+           
+            <a href="#pot1-section" class="section-btn">一年生盆栽</a>
+            <a href="#pot2-section" class="section-btn">二年生盆栽</a>
+            <a href="#pot3-section" class="section-btn">三年生盆栽</a>
+          </div>
+          <div style="margin-top:18px;">
+            <a href="index.html" class="btn return-btn">返回主頁</a>
+          </div>
+          <div style="margin-top:16px;">
+            <a href="order.html" class="btn" style="background:#e53935; color:#fff; font-size:1.5em; font-weight:bold; border-radius:10px; padding:16px 36px; letter-spacing:2px; box-shadow:0 2px 8px #e0c08044;">按我購買</a>
+          </div>
+          <div style="margin-top:32px; font-size:1.1em; color:#fff; background:#7c4d03; border-radius:10px; padding:18px 22px; box-shadow:0 2px 8px #e0c08044;">
+            <div style="font-weight:bold; font-size:1.2em; margin-bottom:10px;">夏娃無花果園現有品種</div>
+            <ol style="margin:0; padding-left:1.5em;">
+              <li>波姬紅</li>
+              <li>斯特拉</li>
+              <li>綜色土耳其</li>
+              <li>法紫</li>
+              <li>馬尤娜</li>
+              <li>索契</li>
+              <li>黑努爾</li>
+              <li>烏魚子</li>
+              <li>深色卡内娃</li>
+              <li>美利亞</li>
+              <li>威海青皮</li>
+              <li>馬爾他獵鷹</li>
+              <li>土耳其黑后</li>
+              <li>黑帝王</li>
+              <li>翡翠草莓</li>
+              <li>紫大果</li>
+              <li>豐産黃</li>
+              <li>伊朗姫</li>
+              <li>綠龍血</li>
+              <li>伯利恆</li>
+              <li>黑美人</li>
+              <li>皇家葡萄園</li>
+              <li>鸢尾花</li>
+              <li>娜不勒斯</li>
+              <li>電子表格</li>
+              <li>藍色布拉瓦</li>
+              <li>木蘭</li>
+              <li>死神黑</li>
+              <li>獨特女王</li>
+              <li>美國紅</li>
+              <li>綠虎</li>
+              <li>卡羅娜黑</li>
+              <li>金傲芬</li>
+              <li>阿美尼亞</li>
+              <li>黑傑克</li>
+              <li>摩洛哥改良23</li>
+              <li>義大利376（新加卅黑）</li>
+              <li>黑卡龍</li>
+              <li>黑貝隆</li>
+              <li>黑色蘇克蕾</li>
+              <li>早山口</li>
+              <li>新疆早黃</li>
+              <li>龍德波爾多</li>
+              <li>白亞得里亞</li>
+              <li>西西里黑</li>
+              <li>青花（变異）</li>
+              <li>紫喬丹</li>
+              <li>亞當</li>
+              <li>白色土耳其</li>
+              <li>貝貝拉布蘭卡</li>
+              <li>伊戈蜂蜜</li>
+              <li>暗黑序利亞</li>
+              <li>黑色熱娜亞</li>
+              <li>紅色黎巴嫩</li>
+              <li>波波拉多</li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
+    <div id="imgLightbox" class="img-lightbox-bg" onclick="closeLightbox()">
+      <img id="imgLightboxImg" src="" alt="放大圖片">
+    </div>
+    <script>
+    function openLightbox(src) {
+      document.getElementById('imgLightboxImg').src = src;
+      document.getElementById('imgLightbox').classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('imgLightbox').classList.remove('active');
+      document.getElementById('imgLightboxImg').src = '';
+    }
+    </script>
 </body>
 </html> 
