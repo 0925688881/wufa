@@ -143,5 +143,23 @@
         };
     });
     </script>
+  </div>
+        
+           <button id="backToTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'});"
+        style="position:fixed; right:32px; bottom:32px; z-index:999; background:#7c4d03; color:#fff; border:none; border-radius:50px; padding:18px 38px; font-size:1.4em; cursor:pointer; box-shadow:0 2px 8px #888; display:none;">
+        回到最上層
+    </button>
+    <script>
+        // 顯示/隱藏按鈕
+        window.addEventListener('scroll', function() {
+            document.getElementById('backToTopBtn').style.display =
+                window.scrollY > 200 ? 'block' : 'none';
+        });
+    </script>
+    </div>
+
+
+
+
 </body>
 </html> 
